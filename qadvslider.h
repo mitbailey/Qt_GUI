@@ -31,7 +31,7 @@
 #include <QLabel>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui { class QAdvSlider; }
 QT_END_NAMESPACE
 
 class QAdvSlider : public QSlider
@@ -47,7 +47,7 @@ public:
 
 signals:
     void mouseReleased();
-
+    void valueUpdated(int val);
 };
 
 #endif // QADVSLIDER_H

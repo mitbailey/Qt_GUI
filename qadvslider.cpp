@@ -26,7 +26,6 @@
 
 void QAdvSlider::mouseReleaseEvent(QMouseEvent *ev)
 {
-    qDebug("Test");
     // Must call original QSlider::mouseReleaseEvent() to prevent breaking normal functionality.
     QSlider::mouseReleaseEvent(ev);
     emit mouseReleased();

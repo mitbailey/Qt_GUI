@@ -25,10 +25,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QDebug>
+
 #include <QMainWindow>
 #include <QSlider>
 #include <QLabel>
+#include <QLCDNumber>
 #include "qadvslider.h"
 
 QT_BEGIN_NAMESPACE
@@ -45,6 +46,8 @@ public:
 
 signals:
     void transmit_to_object(double value);
+    void leftValueUpdated(double value);
+    void rightValueUpdated(double value);
 
 private slots:
     void receive_from_left_adv_slider();
@@ -53,16 +56,22 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    void update_scaling(int value, bool right);
+
+    double l_scaling;
+    double r_scaling;
+
     QLabel *left_image_label;
     QLabel *right_image_label;
 
     QPixmap left_pixmap;
     QPixmap right_pixmap;
 
-//    QSlider *lslider;
-//    QSlider *rslider;
     QAdvSlider *l_adv_slider;
     QAdvSlider *r_adv_slider;
+
+    QLCDNumber *l_lcdnumber;
+    QLCDNumber *r_lcdnumber;
 };
 
 #endif // MAINWINDOW_H
